@@ -13,6 +13,8 @@ from urllib.parse import urljoin
 from urllib.parse import urlparse
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
+from wordcloud import WordCloud, STOPWORDS
+import matplotlib.pyplot as plt
 
 ctx = ssl.create_default_context()
 ctx.check_hostname = False
@@ -92,6 +94,7 @@ for link in webs:
         song = song.replace("(","")
         song = song.replace(")","")
         song = song.replace("\r"," ")
+        song = song.replace("'"," ")
         songs.append(song) 
     except:
         continue
@@ -141,4 +144,9 @@ print("Open gword.htm in a browser to see the vizualization")
 
 sorted_words = sorted(counts.items(), key=lambda kv: kv[1])
 
-print(sorted_dict[-10:])
+# Generate word cloud
+wordcloud = WordCloud(width= 3000, height = 2000, random_state=1, background_color='salmon', colormap='Pastel1', collocations=False, stopwords = STOPWORDS).generate_from_frequencies(counts)
+
+# Plot
+plt.figure(figsize=(15,8))
+plt.imshow(wordcloud)

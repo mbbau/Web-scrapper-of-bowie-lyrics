@@ -6,10 +6,11 @@ I have divided the process into three different scripts, in order to make it mor
 
 1 - The first one, named "Initial Scrape", takes all the song names of the page www.lyrics.com and the links to their lyrics and place them in a Data Base called dbowie.sqlite.
 
-2 - The second one goes link by link collecting the lyrics for all the songs of the data base, and counting the words used by David Bowie in his songs, to give the main 10 words.
+2 - The second one, named lyrics extractor, goes link by link collecting the lyrics for all the songs of the data base, and counting the words used by David Bowie in his songs, to give the main 10 words.
 
+There is a version called proyecto that goes through all the process.
 
-The result of this project was:
+The 10 most used words were:
 
 [('down', 1114),
  ('little', 1126),
@@ -21,4 +22,6 @@ The result of this project was:
  ("it's", 1698),
  ('love', 1795),
  ('your', 2515)]
+
+![wordcloud Bowie](https://user-images.githubusercontent.com/61053776/155200263-414a582b-7e37-4e8e-b55b-444ba902c8ba.png)
 
